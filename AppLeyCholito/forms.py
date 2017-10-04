@@ -8,14 +8,14 @@ user_type_options = (('PN', 'Persona Natural'),
                  ('RM', 'Representante de Municipalidad'))
 
 class DenunciaForm(forms.ModelForm):
-    Herido = forms.BooleanField()
+    #Herido = forms.BooleanField(default=False)
     Sexo = forms.MultipleChoiceField(required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=TIPOS_SEXO,
     )
     class Meta:
         model = Denuncia
-        fields = ('TipDenuncia', 'Animal','Sexo','Herido','Color','Comentario')
+        fields = ('TipDenuncia', 'Animal', 'Sexo', 'Herido', 'Color', 'Comentario')
 
 
 class AuthenticationForm(forms.ModelForm):
@@ -27,6 +27,7 @@ class AuthenticationForm(forms.ModelForm):
         }
         fields = ('username', 'password', 'password_repeat', 'user_type')
 
+
 class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
@@ -34,3 +35,4 @@ class LoginForm(forms.ModelForm):
             'password': forms.PasswordInput(),
         }
         fields = ('username', 'password')
+
