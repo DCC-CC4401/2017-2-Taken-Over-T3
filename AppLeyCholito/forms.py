@@ -8,11 +8,7 @@ user_type_options = (('PN', 'Persona Natural'),
                  ('RM', 'Representante de Municipalidad'))
 
 class DenunciaForm(forms.ModelForm):
-    Herido = forms.BooleanField()
-    Sexo = forms.MultipleChoiceField(required=False,
-        widget=forms.CheckboxSelectMultiple,
-        choices=TIPOS_SEXO,
-    )
+
     class Meta:
         model = Denuncia
         fields = ('TipDenuncia', 'Animal','Sexo','Herido','Color','Comentario')
