@@ -8,7 +8,7 @@ from .models import Login
 
 
 def index(request):
-    return render(request, 'landing_page.html')
+    return render(request, 'index.html')
 
 def landing_page(request):
     all_users = Login.objects.all()
