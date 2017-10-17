@@ -3,12 +3,15 @@ from django.shortcuts import redirect
 from .forms import DenunciaForm
 from .forms import AuthenticationForm
 from .forms import LoginForm
+from .models import Denuncia
+from django.shortcuts import render, get_object_or_404
 
 def denuncia_new(request):
     if request.method== "POST":
         form = DenunciaForm(request.POST)
         if form.is_valid():
             denucia= form.save()
+            return  redirect('denuncia_detail',pk=denucia.pk)
     else:
         form = DenunciaForm()
     return render(request, 'denuncia_edit.html', {'form': form})
@@ -21,3 +24,6 @@ def login(request):
     form = LoginForm
     return render(request, 'login.html', {'form': form})
 
+def denuncia_detail(request, pk):
+    denuncia = get_object_or_404(Denuncia,pk=pk)
+    return render(request, 'denuncia_detail.html', {'denuncia': denuncia})
