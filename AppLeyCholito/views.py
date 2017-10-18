@@ -7,11 +7,11 @@ from .models import Denuncia
 from django.shortcuts import render, get_object_or_404
 
 def denuncia_new(request):
-    if request.method== "POST":
+    if request.method == "POST":
         form = DenunciaForm(request.POST)
         if form.is_valid():
             denucia= form.save()
-            return  redirect('denuncia_detail',pk=denucia.pk)
+            return redirect('denuncia_detail', pk=denucia.pk)
     else:
         form = DenunciaForm()
     return render(request, 'denuncia_edit.html', {'form': form})
