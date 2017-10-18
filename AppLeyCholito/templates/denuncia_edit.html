@@ -9,11 +9,11 @@
 </head>
 <body>
    {% block content %}
-        <h1>Nueva Denuncia</h1>
        <div class="container">
+            <h1>Nueva Denuncia</h1>
             <form method="POST" class="post-form">{% csrf_token %}
             <div class="row">
-                <div class="col">
+                <div class="col-md-4">
                     {% for field in form %}
                       {{ field }}
                     {% endfor %}

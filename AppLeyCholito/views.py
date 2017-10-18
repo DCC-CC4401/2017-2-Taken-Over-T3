@@ -6,6 +6,9 @@ from .forms import LoginForm
 from .models import Denuncia
 from django.shortcuts import render, get_object_or_404
 
+def index(request):
+    return render(request, 'index.html')
+
 def denuncia_new(request):
     if request.method == "POST":
         form = DenunciaForm(request.POST)

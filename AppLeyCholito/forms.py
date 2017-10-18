@@ -30,7 +30,7 @@ class DenunciaForm(forms.ModelForm):
             'placeholder': 'Descripción extra de la situación...'
         }
     ))
-    Herido = forms.BooleanField(required=False)
+    Herido = forms.BooleanField(required=False, label='<strong>¿Herido?</strong>')
 
     class Meta:
 
