@@ -5,7 +5,7 @@ from .forms import AuthenticationForm
 from .forms import LoginForm
 from .models import Denuncia
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.form import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     return render(request, 'index.html')
