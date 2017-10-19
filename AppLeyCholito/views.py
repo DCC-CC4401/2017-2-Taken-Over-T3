@@ -29,7 +29,7 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 def denuncia_detail(request, pk):
-    denuncia = get_object_or_404(Denuncia,pk=pk)
+    denuncia = get_object_or_404(Denuncia, pk=pk)
     return render(request, 'denuncia_detail.html', {'denuncia': denuncia})
 
 
