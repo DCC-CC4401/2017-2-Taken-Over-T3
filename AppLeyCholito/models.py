@@ -26,3 +26,17 @@ class Denuncia(models.Model):
     Color = models.CharField(max_length=10)
     Herido = models.BooleanField()
     Comentario = models.CharField(max_length=30)
+
+    def get_animal_type(self):
+        if self.TIPOS_ANIMALES == "AC":
+            return "Abandono en la Calle"
+        elif self.TIPOS_ANIMALES == "FC":
+            return "Falta de Comida"
+        elif self.TIPOS_ANIMALES == "ETE":
+            return "Exposición a Temperaturas Extremas"
+        elif self.TIPOS_ANIMALES == "FA":
+            return "Falta de Agua"
+        elif self.TIPOS_ANIMALES == "V":
+            return "Violencia"
+        elif self.TIPOS_ANIMALES == "VA":
+            return "Venta Ambulante"

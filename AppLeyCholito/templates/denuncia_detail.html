@@ -1,12 +1,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <h1 class="text-center">Denuncia #1234</h1>
         <div class="container">
-            <div class="row">
+            <div class="row bg-info">
                 <div class="col-sm-2">
                     Tipo de denuncia
                 </div>
                 <div class="col-sm-2">
-                    {{ denuncia.TipDenuncia}}
+
+                    {% with denuncia.get_animal_type as p %}
+                      <span>p</span>
+                    {% endwith %}
                 </div>
                 <div class="col-sm-2">
                     Tipo de animal:
@@ -32,42 +35,45 @@
                     Sexo
                 </div>
                 <div class="col-sm-2">
-                    {{ denuncia.Animal }}
+                    {% if denuncia.Sexo == 'M' %}
+                        <span>Macho</span>
+                    {% else %}
+                        <span>Hembra</span>
+                    {% endif %}
                 </div>
                 <div class="col-sm-2">
                     ¿Herido?
                 </div>
                 <div class="col-sm-2">
-                    {{ denuncia.Color }}
+                    {% if denuncia.Herido %}
+                        <span>Si</span>
+                    {% else %}
+                        <span>No</span>
+                    {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row bg-info">
                 <div class="col-sm-2">
                     Comentario
                 </div>
                 <div class="col-sm-2">
-                    {{ denuncia.Color }}
+                    {{ denuncia.Comentario }}
                 </div>
             </div>
             <div class="row">
                 <h3 class="text-center">mapa</h3>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div class="row bg-info">
+                <div class="col-sm-2">
                     <button type="button" class="btn btn-primary">Resolver Denuncia</button>
                 </div>
-                <div class="col-6">
+                <div class="col-sm-2">
                     <button type="button" class="btn btn-warning">Eliminar</button>
                 </div>
             </div>
 
 
         </div>
-    <h2>{{ denuncia.Animal }}</h2>
-            <h3>{{ denuncia.Sexo }}</h3>
-            <h4>{{ denuncia.Color }}</h4>
-            <h5>{{denuncia.Herido  }}</h5>
-            <h6>tipoDenuncia({{ denuncia.Comentario }})</h6>
 
 
 <script>
