@@ -13,6 +13,18 @@ class Authentication(models.Model):
                  ('RM', 'Representante de Municipalidad'))
     user_type = models.CharField(max_length=1, choices=user_type_options)
 
+class Animal(models.Model):
+    TIPOS_ANIMALES = (('Perro', 'Perro'), ('Gato', 'Gato'), ('Otro', 'Otro'))
+    TIPOS_SEXO = (('H', "Hembra"), ('M', "Macho"))
+    Nombre = models.CharField(max_length=15)
+    Foto = models.ImageField
+    Sexo = models.CharField(max_length=1, choices=TIPOS_SEXO)
+    Tipo = models.CharField(max_length=10, choices=TIPOS_ANIMALES)
+    Adoptado = models.BooleanField()
+    Edad_Estimda= models.IntegerField
+    En_adopcion_desde= models.DateField
+    Comentario = models.CharField(max_length=200)
+
 class Denuncia(models.Model):
     TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
                       ('ETE','Exposición a Temperaturas Extremas'),
