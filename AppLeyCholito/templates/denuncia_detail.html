@@ -1,10 +1,79 @@
-{% block content %}
-    <div class="denuncia">
-        <h1>{{ denuncia.TipDenuncia}}</h1>
-        <h2>{{ denuncia.Animal }}</h2>
-        <h3>{{ denuncia.Sexo }}</h3>
-        <h4>{{ denuncia.Color }}</h4>
-        <h5>{{denuncia.Herido  }}</h5>
-        <h6>{{ denuncia.Comentario }}</h6>
-    </div>
-{% endblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h1 class="text-center">Denuncia #1234</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    Tipo de denuncia
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.TipDenuncia}}
+                </div>
+                <div class="col-sm-2">
+                    Tipo de animal:
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Animal }}
+                </div>
+                <div class="col-sm-2">
+                    Color
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Color }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Dirección
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.TipDenuncia}}
+                </div>
+                <div class="col-sm-2">
+                    Sexo
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Animal }}
+                </div>
+                <div class="col-sm-2">
+                    ¿Herido?
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Color }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Comentario
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Color }}
+                </div>
+            </div>
+            <div class="row">
+                <h3 class="text-center">mapa</h3>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-primary">Resolver Denuncia</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-warning">Eliminar</button>
+                </div>
+            </div>
+
+
+        </div>
+    <h2>{{ denuncia.Animal }}</h2>
+            <h3>{{ denuncia.Sexo }}</h3>
+            <h4>{{ denuncia.Color }}</h4>
+            <h5>{{denuncia.Herido  }}</h5>
+            <h6>tipoDenuncia({{ denuncia.Comentario }})</h6>
+
+
+<script>
+    function tipoDenuncia(key){
+        return "hola";
+    }
+
+
+</script>
