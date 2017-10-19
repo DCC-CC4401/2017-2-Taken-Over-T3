@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AppLeyCholito.apps.AppleycholitoConfig',
-    'bootstrapform',
+    #'bootstrapform',
 ]
 
 MIDDLEWARE = [
