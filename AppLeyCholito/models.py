@@ -20,7 +20,12 @@ class Denuncia(models.Model):
                       ('V','Violencia'),('VA','Venta Ambulante'))
     TIPOS_ANIMALES =(('Perro','Perro'),('Gato','Gato'),('Otro','Otro'))
     TIPOS_SEXO = (('H',"Hembra"),('M',"Macho"))
+    TIPOS_ESTADO = (('reportadas','reportadas'), ('consolidadas','consolidadas'),
+                    ('verificadas','verificadas'),('cerradas','cerradas'),
+                    ('desechadas','desechadas'))
+
     TipDenuncia = models.CharField(max_length=3, choices=TIPOS_OPCIONES)
+    Estado_Denuncia = models.CharField(max_length=10, choices=TIPOS_ESTADO)
     Animal = models.CharField(max_length=10, choices=TIPOS_ANIMALES)
     Sexo = models.CharField(max_length=1, choices=TIPOS_SEXO)
     Color = models.CharField(max_length=10)

@@ -14,7 +14,9 @@ def denuncia_new(request):
     if request.method == "POST":
         form = DenunciaForm(request.POST)
         if form.is_valid():
-            denucia = form.save()
+            denucia = form.save(commit=False)
+            denucia.Estado_Denuncia='reportadas'
+            denucia.save()
             return redirect('denuncia_detail', pk=denucia.pk)
     else:
         form = DenunciaForm()
