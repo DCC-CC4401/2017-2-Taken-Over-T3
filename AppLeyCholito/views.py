@@ -1,14 +1,21 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .forms import DenunciaForm
+from .forms import AnimalForm
 from .forms import AuthenticationForm
 from .forms import LoginForm
 from .models import Denuncia
+from .models import Animal
 from django.shortcuts import render, get_object_or_404
 #from django.contrib.auth.form import UserCreationForm
 
 def index(request):
     return render(request, 'index.html')
+
+def animal_new(request):
+    form = AnimalForm()
+    return render(request, 'animal_edit.html', {'form': form})
+
 
 def denuncia_new(request):
     if request.method == "POST":
@@ -34,6 +41,9 @@ def denuncia_detail(request, pk):
     denuncia = get_object_or_404(Denuncia, pk=pk)
     return render(request, 'denuncia_detail.html', {'denuncia': denuncia})
 
+def animal_detail(request, pk):
+    animal = get_object_or_404(Animal, pk=pk)
+    return render(request, 'animal_detail.html', {'animal': animal})
 
 #def register(request):
  #   if request.method == 'POST':

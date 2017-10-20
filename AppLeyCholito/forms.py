@@ -3,6 +3,7 @@ from django import forms
 from .models import Denuncia
 from .models import Authentication
 from .models import Login
+from .models import Animal
 
 TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
                       ('ETE','Exposición a Temperaturas Extremas'),
@@ -13,6 +14,12 @@ TIPOS_ANIMALES =(('Perro','Perro'),('Gato','Gato'),('Otro','Otro'))
 
 user_type_options = (('PN', 'Persona Natural'),
                  ('RM', 'Representante de Municipalidad'))
+
+class AnimalForm(forms.ModelForm):
+
+   class Meta:
+       model=Animal
+       fields=("Nombre","Sexo","Tipo","Adoptado","Comentario")
 
 class DenunciaForm(forms.ModelForm):
     TipDenuncia = forms.ChoiceField(choices=TIPOS_OPCIONES, widget=forms.Select(
