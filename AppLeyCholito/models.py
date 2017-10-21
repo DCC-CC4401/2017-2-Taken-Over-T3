@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+
 class Login(models.Model):
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
@@ -17,7 +22,7 @@ class Animal(models.Model):
     TIPOS_ANIMALES = (('Perro', 'Perro'), ('Gato', 'Gato'), ('Otro', 'Otro'))
     TIPOS_SEXO = (('H', "Hembra"), ('M', "Macho"))
     Nombre = models.CharField(max_length=15)
-    Foto = models.ImageField
+    Foto = models.ImageField(upload_to='images', default='in.jpeg')
     Sexo = models.CharField(max_length=1, choices=TIPOS_SEXO)
     Tipo = models.CharField(max_length=10, choices=TIPOS_ANIMALES)
     Adoptado = models.BooleanField()
@@ -27,7 +32,7 @@ class Animal(models.Model):
 
 class Denuncia(models.Model):
     TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
-                      ('ETE','Exposición a Temperaturas Extremas'),
+                      ('ETE','Exposicion a Temperaturas Extremas'),
                       ('FA','Falta de Agua'),('FC','Falta de Comida'),
                       ('V','Violencia'),('VA','Venta Ambulante'))
     TIPOS_ANIMALES =(('Perro','Perro'),('Gato','Gato'),('Otro','Otro'))
@@ -50,7 +55,7 @@ class Denuncia(models.Model):
         elif self.TIPOS_ANIMALES == "FC":
             return "Falta de Comida"
         elif self.TIPOS_ANIMALES == "ETE":
-            return "Exposición a Temperaturas Extremas"
+            return "Exposicion a Temperaturas Extremas"
         elif self.TIPOS_ANIMALES == "FA":
             return "Falta de Agua"
         elif self.TIPOS_ANIMALES == "V":

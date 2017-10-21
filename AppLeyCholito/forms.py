@@ -4,7 +4,7 @@ from .models import Denuncia
 from .models import Authentication
 from .models import Login
 from .models import Animal
-
+import datetime
 TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
                       ('ETE','Exposición a Temperaturas Extremas'),
                       ('FA','Falta de Agua'),('FC','Falta de Comida'),
@@ -19,7 +19,9 @@ class AnimalForm(forms.ModelForm):
 
    class Meta:
        model=Animal
-       fields=("Nombre","Sexo","Tipo","Adoptado","Comentario")
+       Edad_Estimda = forms.IntegerField(label="Edad Estimada",initial=0)
+       En_adopcion_desde = forms.DateField(label="En Adopcion desde",initial=datetime.date.today() )
+       fields=("Nombre","Foto","Sexo","Tipo","Adoptado","Comentario")
 
 class DenunciaForm(forms.ModelForm):
     TipDenuncia = forms.ChoiceField(choices=TIPOS_OPCIONES, widget=forms.Select(
