@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
+#import sys
+#reload(sys)
+#sys.setdefaultencoding("utf-8")
 
 
 class Login(models.Model):
@@ -15,7 +15,9 @@ class Authentication(models.Model):
     password = models.CharField(max_length=20)
     password_repeat = models.CharField(max_length=20)
     user_type_options = (('PN', 'Persona Natural'),
-                 ('RM', 'Representante de Municipalidad'))
+                 ('RM', 'Representante de Municipalidad'),
+                         ('RO','Representante de Organizacion'),
+                         ('ADM','Administrador'))
     user_type = models.CharField(max_length=1, choices=user_type_options)
 
 class Animal(models.Model):

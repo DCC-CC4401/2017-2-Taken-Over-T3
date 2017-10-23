@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </button>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="login.html" class="btn btn-default btn-flat">Salir</a>
+                                        <a href="login" class="btn btn-default btn-flat">Salir</a>
                                     </div>
                                 </li>
                             </ul>
@@ -249,7 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.tab-pane -->
             <!-- Settings tab content -->
             <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
+                <form method="post">{% csrf_token %}
                     <h3 class="control-sidebar-heading">General Settings</h3>
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
@@ -346,7 +346,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
             var markerOne = new google.maps.Marker({
                 position: centerOne,
-                icon: "favorito.png"
+                icon: "{% static 'AppLeyCholito/img/favorito.jpg' %}"
             });
             markerOne.setMap(map);
             infowindow.open(map,markerOne);

@@ -48,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Ingresa tu email y contraseña para ingresar.
             </p>
 
-            <form action="" method="post">
+            <form action="" method="post">{% csrf_token %}
                 <div class="form-group has-feedback">
                     {{ form.username }}
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

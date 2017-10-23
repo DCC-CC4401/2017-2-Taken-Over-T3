@@ -5,6 +5,9 @@ from .models import Authentication
 from .models import Login
 from .models import Animal
 import datetime
+from django.contrib.auth.models import User
+
+
 TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
                       ('ETE','Exposición a Temperaturas Extremas'),
                       ('FA','Falta de Agua'),('FC','Falta de Comida'),
@@ -13,14 +16,15 @@ TIPOS_SEXO =(('H', "Hembra"), ('M', "Macho"))
 TIPOS_ANIMALES =(('Perro','Perro'),('Gato','Gato'),('Otro','Otro'))
 
 user_type_options = (('PN', 'Persona Natural'),
-                 ('RM', 'Representante de Municipalidad'))
+                 ('RM', 'Representante de Municipalidad'),
+                         ('RO','Representante de Organizacion'),
+                         ('ADM','Administrador'))
 
 class AnimalForm(forms.ModelForm):
-
    class Meta:
        model=Animal
        Edad_Estimda = forms.IntegerField(label="Edad Estimada",initial=0)
-       En_adopcion_desde = forms.DateField(label="En Adopcion desde",initial=datetime.date.today() )
+       En_adopcion_desde = forms.DateField(label="En Adopcion desde", initial=datetime.date.today() )
        fields=("Nombre","Foto","Sexo","Tipo","Adoptado","Comentario")
 
 class DenunciaForm(forms.ModelForm):
@@ -47,7 +51,6 @@ class DenunciaForm(forms.ModelForm):
     Herido = forms.BooleanField(required=False, label='<strong>¿Herido?</strong>')
 
     class Meta:
-
         model = Denuncia
         fields = ('TipDenuncia', 'Animal', 'Sexo', 'Herido', 'Color', 'Comentario')
 
@@ -96,3 +99,22 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
         fields = ('username', 'password')
+
+
+class UserForm(forms.ModelForm):
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Usuario'
+        }
+    ))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Contraseña'
+        }
+    ))
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
