@@ -6,10 +6,7 @@
                     Tipo de denuncia
                 </div>
                 <div class="col-sm-2">
-
-                    {% with denuncia.get_animal_type as p %}
-                      <span>p</span>
-                    {% endwith %}
+                    {{ denuncia.TipDenuncia }}
                 </div>
                 <div class="col-sm-2">
                     Tipo de animal:
@@ -29,7 +26,8 @@
                     Dirección
                 </div>
                 <div class="col-sm-2">
-                    {{ denuncia.TipDenuncia}}
+                    Beaucheff 850
+                    <!-- {{ denuncia.TipDenuncia}} -->
                 </div>
                 <div class="col-sm-2">
                     Sexo
@@ -68,7 +66,7 @@
                     <button type="button" class="btn btn-primary">Resolver Denuncia</button>
                 </div>
                 <div class="col-sm-2">
-                    <button type="button" class="btn btn-warning">Eliminar</button>
+                    <button type="button" class="btn btn-warning" onclick="location.href = '../../';">Eliminar</button>
                 </div>
             </div>
 

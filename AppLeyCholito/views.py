@@ -23,7 +23,7 @@ def animal_new(request):
             return redirect('animal_detail',pk=animal.pk)
     else:
         form=AnimalForm()
-    return  render(request,'animal_edit.html',{'form':form})
+    return  render(request, 'animal_edit.html', {'form': form})
 
 def denuncia_new(request):
     if request.method == "POST":

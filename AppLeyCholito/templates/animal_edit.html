@@ -1,7 +1,78 @@
- {% block content %}
-        <h1>Nuevo Animal</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% block content %}
+    <div class="container bg-warning">
+        <h1 align="center">Nuevo Animal</h1>
         <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save</button>
+            <div class="row bg-warning">
+                <div class="col-md-4">
+                    {{ form.Foto }}
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Nombre: </strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.Nombre }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Sexo: </strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.Sexo }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Tipo: </strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.Tipo }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Adoptado </strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.Adoptado }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>Edad estimada: </strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ form.Edad_Estimda }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>En adopción desde: </strong>
+                        </div>
+                        <div class="col-md-3">
+                            {{ form.En_adopcion_desde }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form.Comentario }}
+                </div>
+            </div>
+            <br>
+            <div class="row bg-warning">
+                <div class="col-md-4">
+                    <button type="submit" class="save btn btn-primary btn-lg">Guardar</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-default btn-lg" onclick="location.href = '../../';">Eliminar</button>
+                </div>
+            </div>
+
         </form>
-    {% endblock %}
+    </div>
+{% endblock %}

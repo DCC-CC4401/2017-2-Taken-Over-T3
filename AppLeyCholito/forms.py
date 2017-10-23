@@ -6,6 +6,7 @@ from .models import Login
 from .models import Animal
 import datetime
 from django.contrib.auth.models import User
+from django.forms import extras
 
 
 TIPOS_OPCIONES = (('AC','Abandono en la Calle'),
@@ -21,10 +22,27 @@ user_type_options = (('PN', 'Persona Natural'),
                          ('ADM','Administrador'))
 
 class AnimalForm(forms.ModelForm):
-   class Meta:
-       model=Animal
-
-       fields=("Nombre","Foto","Sexo","Tipo","Edad_Estimda","En_adopcion_desde","Adoptado","Comentario")
+    Nombre = forms.CharField(max_length=10, widget=forms.TextInput(
+        attrs={
+            'size': '10',
+            'class': 'form-control'
+        }
+    ))
+    Foto = forms.ImageField()
+    Sexo = forms.ChoiceField(choices=TIPOS_SEXO, widget=forms.Select(attrs={"class": "form-control"}))
+    Tipo = forms.ChoiceField(choices=TIPOS_ANIMALES, widget=forms.Select(attrs={"class": "form-control"}))
+    Edad_Estimda = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    En_adopcion_desde = forms.DateField(widget=extras.SelectDateWidget(attrs={'class': 'form-control'}))
+    Adoptado = forms.BooleanField(required=False)
+    Comentario = forms.CharField(widget=forms.Textarea(attrs={
+        "class": "form-control",
+        "placeholder": "Añadir descripción...",
+        'rows': 4,
+        'cols': 15
+    }))
+    class Meta:
+       model= Animal
+       fields=("Nombre", "Foto", "Sexo", "Tipo", "Edad_Estimda", "En_adopcion_desde", "Adoptado", "Comentario")
 
 class DenunciaForm(forms.ModelForm):
     TipDenuncia = forms.ChoiceField(choices=TIPOS_OPCIONES, widget=forms.Select(

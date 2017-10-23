@@ -28,7 +28,7 @@ class Animal(models.Model):
     Sexo = models.CharField(max_length=1, choices=TIPOS_SEXO)
     Tipo = models.CharField(max_length=10, choices=TIPOS_ANIMALES)
     Adoptado = models.BooleanField()
-    Edad_Estimda= models.IntegerField(default=0,max_length=3)
+    Edad_Estimda= models.IntegerField(default=0, max_length=3)
     En_adopcion_desde= models.DateField(default=datetime.date.today())
     Comentario = models.CharField(max_length=200)
 
