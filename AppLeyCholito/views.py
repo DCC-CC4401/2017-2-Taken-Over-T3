@@ -15,9 +15,15 @@ def index(request):
     return render(request, 'index.html')
 
 def animal_new(request):
-    form = AnimalForm()
-    return render(request, 'animal_edit.html', {'form': form})
-
+    if request.method == "POST":
+        form = AnimalForm(request.POST)
+        if form.is_valid():
+            animal = form.save()
+            animal.save()
+            return redirect('animal_detail',pk=animal.pk)
+    else:
+        form=AnimalForm()
+    return  render(request,'animal_edit.html',{'form':form})
 
 def denuncia_new(request):
     if request.method == "POST":

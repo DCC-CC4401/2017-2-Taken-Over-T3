@@ -23,9 +23,8 @@ user_type_options = (('PN', 'Persona Natural'),
 class AnimalForm(forms.ModelForm):
    class Meta:
        model=Animal
-       Edad_Estimda = forms.IntegerField(label="Edad Estimada",initial=0)
-       En_adopcion_desde = forms.DateField(label="En Adopcion desde", initial=datetime.date.today() )
-       fields=("Nombre","Foto","Sexo","Tipo","Adoptado","Comentario")
+
+       fields=("Nombre","Foto","Sexo","Tipo","Edad_Estimda","En_adopcion_desde","Adoptado","Comentario")
 
 class DenunciaForm(forms.ModelForm):
     TipDenuncia = forms.ChoiceField(choices=TIPOS_OPCIONES, widget=forms.Select(

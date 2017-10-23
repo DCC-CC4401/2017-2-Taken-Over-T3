@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-
+import datetime
 #import sys
 #reload(sys)
 #sys.setdefaultencoding("utf-8")
@@ -24,12 +24,12 @@ class Animal(models.Model):
     TIPOS_ANIMALES = (('Perro', 'Perro'), ('Gato', 'Gato'), ('Otro', 'Otro'))
     TIPOS_SEXO = (('H', "Hembra"), ('M', "Macho"))
     Nombre = models.CharField(max_length=15)
-    Foto = models.ImageField(upload_to='images', default='in.jpeg')
+    Foto = models.ImageField(upload_to='AppLeyCholito/static/AppLeyCholito/imgs_animales', default='in.jpeg')
     Sexo = models.CharField(max_length=1, choices=TIPOS_SEXO)
     Tipo = models.CharField(max_length=10, choices=TIPOS_ANIMALES)
     Adoptado = models.BooleanField()
-    Edad_Estimda= models.IntegerField
-    En_adopcion_desde= models.DateField
+    Edad_Estimda= models.IntegerField(default=0,max_length=3)
+    En_adopcion_desde= models.DateField(default=datetime.date.today())
     Comentario = models.CharField(max_length=200)
 
 class Denuncia(models.Model):
