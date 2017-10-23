@@ -120,3 +120,9 @@ class UserFormView(View):
         return render(request, self.template_name, {'form': form})
 
 
+def municipalidad(request): #pk
+    return render(request, 'muni_ong.html') #, {'muni': muni})
+
+def muniOngStats(request): #pk
+    return render(request, 'muni_ong_stats.html') #, {'muni': muni})
+
