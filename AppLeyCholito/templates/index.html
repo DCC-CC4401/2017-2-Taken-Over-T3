@@ -338,9 +338,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
             var map = new google.maps.Map(mapCanvas,mapOptions);
             myCity.setMap(map);
+
+            var miPos = {lat: -33.457775800, lng: -70.663943800};
+
+            placeMarker(map, miPos);
+            /*
             google.maps.event.addListener(map, 'click', function(event) {
                 placeMarker(map, event.latLng);
             });
+            */
             var infowindow = new google.maps.InfoWindow({
                 content:"ONG Favorita"
             });
@@ -358,7 +364,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 map: map
             });
             var infowindow = new google.maps.InfoWindow({
-                content: 'Nombre ONG'
+                content: 'Estás Aquí'
             });
             infowindow.open(map,marker);
         }
