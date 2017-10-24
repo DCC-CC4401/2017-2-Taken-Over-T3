@@ -1,13 +1,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {% load staticfiles %}
-    <div class="container">
-        <div class="row">
+<body bgcolor="#A9A9A9">
+    <div class="container-fluid well" style="border:1px solid #cecece;">
+        <div class="row well">
             <div class="col-md-4">
-                <img src="" id="image" style="width:300px;height:200px;">
+                <img src="" id="image" style="width:350px;height:200px;">
             </div>
             <div class="col-md-8">
                 <div class="row col-md-offset-4">
-                    {{ animal.Nombre }}
+                    <h2><strong>{{ animal.Nombre }}</strong></h2>
                 </div>
                 <div class="row col-md-offset-4">
                     {{ animal.Tipo }} | {% if animal.Sexo == 'H' %} Hembra {% else %} Macho {% endif %}
@@ -33,11 +34,11 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row col-md-offset-1 well">
             {{ animal.Comentario }}
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-md-offset-4">
                 <button type="button" class="btn btn-success btn-lg">¡Adóptame!</button>
             </div>
         </div>
@@ -53,3 +54,4 @@
     document.getElementById('image').src = base_url+"/static/"+path;
 
 </script>
+</body>
