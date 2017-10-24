@@ -145,3 +145,6 @@ def muniOngStats(request): #pk
 def muniDenuncias(request):
     denuncias = Denuncia.objects.all()
     return render(request, 'muni_denuncias.html', {'denuncias': denuncias})
+
+def muni_denuncias_stats(request):
+    return render(request, 'muni_denuncias_stats.html')

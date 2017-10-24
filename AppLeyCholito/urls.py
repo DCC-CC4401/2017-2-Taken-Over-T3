@@ -14,4 +14,5 @@ urlpatterns = [
       url(r'^municipalidad/$', views.municipalidad, name='municipalidad'),
       url(r'^municipalidad/ong-stats$', views.muniOngStats, name='municipalidad'),
       url(r'^municipalidad/denuncias$', views.muniDenuncias, name='municipalidad'),
+      url(r'^municipalidad/denuncias/stats$', views.muni_denuncias_stats, name='municipalidad'),
 ]

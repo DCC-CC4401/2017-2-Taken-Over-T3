@@ -31,7 +31,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.js"></script>
+
     <![endif]-->
+
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -124,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="">
+                                <a href="denuncias/stats">
                                     <i class="fa fa-circle-o"></i>
                                     Denuncias
                                 </a>
@@ -180,13 +185,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- /.box -->
                     </div>
                     <!-- /.col -->
+                    <!-- LINE CHART -->
                     <div class="col-md-6">
-                        <!-- Bar chart -->
+                      <!-- Bar chart -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
                                 <i class="fa fa-bar-chart-o"></i>
 
-                                <h3 class="box-title">Esterilización</h3>
+                                <h3 class="box-title">Adopción</h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -204,10 +210,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <!-- /.box -->
                     </div>
-                    <!-- /.col -->
                 </div>
-
             </section>
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -356,6 +361,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
     <script src="{% static 'AppLeyCholito/js/jquery.flot.categories.js' %}"></script>
 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
     <!-- Page script -->
     <script>
         $(function () {
@@ -409,7 +418,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             })
         /* END BAR CHART */
 
+
         })
+
+        
 
         /*
         * Custom Label formatter
