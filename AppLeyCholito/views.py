@@ -132,3 +132,6 @@ def municipalidad(request): #pk
 def muniOngStats(request): #pk
     return render(request, 'muni_ong_stats.html') #, {'muni': muni})
 
+def muniDenuncias(request):
+    denuncias = Denuncia.objects.all()
+    return render(request, 'muni_denuncias.html', {'denuncias': denuncias})

@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Municipalidad | Cholito</title>
+    <title>Denuncias Municipalidad | Cholito</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a href="" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>CH</b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="sidebar-menu" data-widget="tree">
                     <!-- Optionally, you can add icons to the links -->
                     <li>
-                        <a href="denuncias">
+                        <a href="">
                             <i class="fa fa-bullhorn"></i>
                             <span>Denuncias</span>
                         </a>
@@ -148,62 +148,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Fundación EDRA
-                    <small>Estadísticas</small>
+                    M. de Santiago
                 </h1>
             </section>
             <!-- Main content -->
             <section class="content container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <!-- Bar chart -->
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <i class="fa fa-bar-chart-o"></i>
 
-                                <h3 class="box-title">Adopción</h3>
+                                <h3 class="box-title"><i class="fa fa-bullhorn"></i>
+                            <span>Denuncias</span></h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                         <i class="fa fa-minus"></i>
                                     </button>
-                                    <!-- <button type="button" class="btn btn-box-tool" data-widget="remove">
-                                        <i class="fa fa-times"></i>
-                                    </button> -->
                                 </div>
                             </div>
                             <div class="box-body">
-                                <div id="bar-chart-1" class="c-bar-chart"></div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <strong>Tipo Denuncia</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>Animal</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>Dirección</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <strong>Herido</strong>
+                                    </div>
+                                </div>
+                                {% block content %}
+                                    {% for denuncia in denuncias %}
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <a href="../denuncia/{{ denuncia.pk }}">{{ denuncia.TipDenuncia }}</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                {{ denuncia.Animal }}
+                                            </div>
+                                            <div class="col-md-3">
+                                                Beauchef 850
+                                            </div>
+                                            <div class="col-md-3">
+                                                {% if denuncia.Herido %}
+                                                    Sí
+                                                {% else %}
+                                                    No
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+
+                                    {% endfor %}
+
+                                {% endblock %}
                             </div>
                             <!-- /.box-body-->
                         </div>
                         <!-- /.box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-md-6">
-                        <!-- Bar chart -->
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <i class="fa fa-bar-chart-o"></i>
 
-                                <h3 class="box-title">Esterilización</h3>
-
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                    <!-- <button type="button" class="btn btn-box-tool" data-widget="remove">
-                                        <i class="fa fa-times"></i>
-                                    </button> -->
-                                </div>
-                            </div>
-                            <div class="box-body">
-                                <div id="bar-chart-2" class="c-bar-chart"></div>
-                            </div>
-                            <!-- /.box-body-->
-                        </div>
-                        <!-- /.box -->
-                    </div>
                     <!-- /.col -->
                 </div>
 
