@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% load staticfiles %}
+<h1 class="text-center">Denuncia #{{ denuncia.pk }}</h1>
+        <div class="container">
+            <div class="row bg-info">
+                <div class="col-sm-2">
+                    Tipo de denuncia
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.TipDenuncia }}
+                </div>
+                <div class="col-sm-2">
+                    Tipo de animal:
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Animal }}
+                </div>
+                <div class="col-sm-2">
+                    Color
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Color }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Dirección
+                </div>
+                <div class="col-sm-2">
+                    Beaucheff 850
+                    <!-- {{ denuncia.TipDenuncia}} -->
+                </div>
+                <div class="col-sm-2">
+                    Sexo
+                </div>
+                <div class="col-sm-2">
+                    {% if denuncia.Sexo == 'M' %}
+                        <span>Macho</span>
+                    {% else %}
+                        <span>Hembra</span>
+                    {% endif %}
+                </div>
+                <div class="col-sm-2">
+                    ¿Herido?
+                </div>
+                <div class="col-sm-2">
+                    {% if denuncia.Herido %}
+                        <span>Si</span>
+                    {% else %}
+                        <span>No</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row bg-info">
+                <div class="col-sm-2">
+                    Comentario
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Comentario }}
+                </div>
+                <div class="col-sm-2">
+                    Estado:
+                </div>
+                <div class="col-sm-2">
+                    {{ denuncia.Estado_Denuncia }}
+                </div>
+            </div>
+        <br>
+            <div class="row col-md-offset-2">
+                <img src="{% static 'AppLeyCholito/img/beauchef850.png' %}" style="width:550px;height:300px;" align="middle">
+            </div>
+        <br>
+            <div class="row bg-info col-md-offset-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" onclick="location.href = '../../municipalidad/denuncias';">Resolver Denuncia</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-warning" onclick="location.href = '../../municipalidad/denuncias';">Eliminar</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-default" onclick="location.href = '../edit/{{ denuncia.pk }}';">Editar</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+<script>
+    function tipoDenuncia(key){
+        return "hola";
+    }
+
+
+</script>

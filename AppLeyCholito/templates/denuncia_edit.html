@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Denuncia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+   {% block content %}
+       <div class="container ">
+            <h1 align="left">Editar Denuncia</h1>
+            <form action="" method="POST" class="post-form">{% csrf_token %}
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Tipo de maltrato:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.TipDenuncia }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Tipo de animal:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.Animal }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Sexo:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.Sexo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Color:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.Color }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>¿Herido?</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.Herido }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Comentario:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.Comentario }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Estado:</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ form.TIPOS_ESTADO }}
+                </div>
+            </div>
+            <br>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-default" onclick="location.href = '../../../municipalidad/denuncias';">Cancelar</button>
+            </form>
+       </div>
+    {% endblock %}
+
+</body>
+</html>
+
+

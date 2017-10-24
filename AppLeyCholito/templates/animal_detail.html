@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% load staticfiles %}
+<body bgcolor="#A9A9A9">
+    <div class="container-fluid well" style="border:1px solid #cecece;">
+        <div class="row well">
+            <div class="col-md-4">
+                <img src="" id="image" style="width:350px;height:200px;">
+            </div>
+            <div class="col-md-8">
+                <div class="row col-md-offset-4">
+                    <h2><strong>{{ animal.Nombre }}</strong></h2>
+                </div>
+                <div class="row col-md-offset-4">
+                    <i>{{ animal.Tipo }}</i> | {% if animal.Sexo == 'H' %} <i>Hembra</i> {% else %} <i>Macho</i> {% endif %}
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Edad Estimada:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ animal.Edad_Estimda }} años
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>En adopción desde:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ animal.En_adopcion_desde }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-md-offset-1 well">
+            {{ animal.Comentario }}
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-4">
+                <button type="button" class="btn btn-success btn-lg">¡Adóptame!</button>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var res = '{{ animal.Foto }}';
+    var base_url = 'http://localhost:8000';
+    var path = res.substring(res.indexOf("static") + 7);
+    console.log(path);
+    console.log(res);
+    console.log(base_url+""+res);
+    document.getElementById('image').src = base_url+"/static/"+path;
+
+</script>
+</body>
