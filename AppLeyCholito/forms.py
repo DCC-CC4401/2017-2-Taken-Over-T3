@@ -63,7 +63,7 @@ class DenunciaForm(forms.ModelForm):
             'placeholder': 'Color del animal...'
         }
     ))
-    Comentario = forms.CharField(max_length=10, widget=forms.TextInput(
+    Comentario = forms.CharField(max_length=100, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Descripción extra de la situación...'
