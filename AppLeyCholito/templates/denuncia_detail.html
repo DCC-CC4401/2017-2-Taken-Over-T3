@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% load staticfiles %}
 <h1 class="text-center">Denuncia #1234</h1>
         <div class="container">
             <div class="row bg-info">
@@ -57,15 +58,23 @@
                 <div class="col-sm-2">
                     {{ denuncia.Comentario }}
                 </div>
-            </div>
-            <div class="row">
-                <h3 class="text-center">mapa</h3>
-            </div>
-            <div class="row bg-info">
                 <div class="col-sm-2">
-                    <button type="button" class="btn btn-primary">Resolver Denuncia</button>
+                    Estado:
                 </div>
                 <div class="col-sm-2">
+                    {{ denuncia.Estado_Denuncia }}
+                </div>
+            </div>
+        <br>
+            <div class="row col-md-offset-2">
+                <img src="{% static 'AppLeyCholito/img/beauchef850.png' %}" style="width:550px;height:300px;" align="middle">
+            </div>
+        <br>
+            <div class="row bg-info col-md-offset-2">
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary">Resolver Denuncia</button>
+                </div>
+                <div class="col-sm-4">
                     <button type="button" class="btn btn-warning" onclick="location.href = '../../';">Eliminar</button>
                 </div>
             </div>
