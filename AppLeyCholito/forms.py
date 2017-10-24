@@ -135,3 +135,35 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
+
+class DenunciaForm1(forms.ModelForm):
+    TipDenuncia = forms.ChoiceField(choices=TIPOS_OPCIONES, widget=forms.Select(
+        attrs={
+            "class": "form-control",
+        })
+    )
+    Animal = forms.ChoiceField(choices=TIPOS_ANIMALES, widget=forms.Select(attrs={"class": "form-control"}))
+    Sexo = forms.ChoiceField(TIPOS_SEXO, widget=forms.Select(attrs={"class": "form-control"}))
+    Color = forms.CharField(max_length=10, widget=forms.TextInput(
+        attrs={
+            'size': '10',
+            'class': 'form-control',
+            'placeholder': 'Color del animal...'
+        }
+    ))
+    Comentario = forms.CharField(max_length=10, widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Descripción extra de la situación...'
+        }
+    ))
+    Herido = forms.BooleanField(required=False, label='<strong>¿Herido?</strong>')
+    TIPOS_ESTADO = (('reportadas', 'reportadas'), ('consolidadas', 'consolidadas'),
+                    ('verificadas', 'verificadas'), ('cerradas', 'cerradas'),
+                    ('desechadas', 'desechadas'))
+
+
+
+    class Meta:
+        model = Denuncia
+        fields = ('TipDenuncia', 'Animal', 'Sexo', 'Herido', 'Color', 'Comentario')
