@@ -3,6 +3,7 @@ from .forms import DenunciaForm
 from .forms import AnimalForm
 from .forms import AuthenticationForm, UserForm
 from .forms import LoginForm
+from .forms import DenunciaForm1
 from .models import Denuncia
 from .models import Animal
 from django.shortcuts import render, get_object_or_404
@@ -15,8 +16,15 @@ def index(request):
     return render(request, 'index.html')
 
 def denuncia_edit(request,pk):
-    denuncia = get_object_or_404(Denuncia, pk=pk)
-    form = DenunciaForm(instance=denuncia)
+    if request.method == "POST":
+        form= DenunciaForm(request.POST)
+        if form.is_valid():
+            denuncia= form.save()
+            denuncia.save()
+            return redirect('denuncia_detail', pk=denuncia.pk)
+    else:
+        denuncia = get_object_or_404(Denuncia, pk=pk)
+        form = DenunciaForm1(instance=denuncia)
 
     return render(request, 'denuncia_edit.html', {'form': form})
 
