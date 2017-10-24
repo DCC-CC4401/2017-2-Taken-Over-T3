@@ -12,7 +12,7 @@ urlpatterns = [
       url(r'^animal/new/$', views.animal_new, name='animal_new'),
       # a la muni falta agregar un pk (para ver el cual muni es) en base a eso cargar los datos correspondientes
       url(r'^municipalidad/$', views.municipalidad, name='municipalidad'),
-      url(r'^municipalidad/ong-stats$', views.muniOngStats, name='municipalidad'),
-      url(r'^municipalidad/denuncias$', views.muniDenuncias, name='municipalidad'),
-      url(r'^municipalidad/denuncias/stats$', views.muni_denuncias_stats, name='municipalidad'),
+      url(r'^municipalidad/ong-stats/$', views.muniOngStats, name='municipalidad'),
+      url(r'^municipalidad/denuncias/$', views.muniDenuncias, name='municipalidad'),
+      url(r'^municipalidad/denuncias/stats/$', views.muni_denuncias_stats, name='municipalidad'),
 ]
