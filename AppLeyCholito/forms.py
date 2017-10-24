@@ -21,6 +21,10 @@ user_type_options = (('PN', 'Persona Natural'),
                          ('RO','Representante de Organizacion'),
                          ('ADM','Administrador'))
 
+TIPOS_ESTADO = (('reportadas','reportadas'), ('consolidadas','consolidadas'),
+                    ('verificadas','verificadas'),('cerradas','cerradas'),
+                    ('desechadas','desechadas'))
+
 class AnimalForm(forms.ModelForm):
     Nombre = forms.CharField(max_length=10, widget=forms.TextInput(
         attrs={
@@ -151,19 +155,14 @@ class DenunciaForm1(forms.ModelForm):
             'placeholder': 'Color del animal...'
         }
     ))
-    Comentario = forms.CharField(max_length=10, widget=forms.TextInput(
+    Comentario = forms.CharField(max_length=100, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Descripción extra de la situación...'
         }
     ))
-    Herido = forms.BooleanField(required=False, label='<strong>¿Herido?</strong>')
-    TIPOS_ESTADO = (('reportadas', 'reportadas'), ('consolidadas', 'consolidadas'),
-                    ('verificadas', 'verificadas'), ('cerradas', 'cerradas'),
-                    ('desechadas', 'desechadas'))
-
-
-
+    Herido = forms.BooleanField(required=False)
+    TIPOS_ESTADO = forms.ChoiceField(choices=TIPOS_ESTADO, widget=forms.Select(attrs={"class": "form-control"}), required=False)
     class Meta:
         model = Denuncia
-        fields = ('TipDenuncia', 'Animal', 'Sexo', 'Herido', 'Color', 'Comentario')
+        fields = ('TipDenuncia', 'Animal', 'Sexo', 'Herido', 'Color', 'Comentario', 'TIPOS_ESTADO')

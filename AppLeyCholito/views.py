@@ -15,18 +15,33 @@ from django.contrib.auth import authenticate, login
 def index(request):
     return render(request, 'index.html')
 
-def denuncia_edit(request,pk):
+def denuncia_new(request):
     if request.method == "POST":
-        form= DenunciaForm(request.POST)
+        form = DenunciaForm1(request.POST)
         if form.is_valid():
-            denuncia= form.save()
+            denucia = form.save(commit=False)
+            denucia.Estado_Denuncia = 'reportadas'
+            denucia.save()
+            return redirect('denuncia_detail', pk=denucia.pk)
+    else:
+        form = DenunciaForm()
+    return render(request, 'denuncia_nueva.html', {'form': form})
+
+def denuncia_detail(request, pk):
+    denuncia = get_object_or_404(Denuncia, pk=pk)
+    return render(request, 'denuncia_detail.html', {'denuncia': denuncia})
+
+def denuncia_edit(request, pk):
+    if request.method == "POST":
+        form = DenunciaForm1(request.POST)
+        if form.is_valid():
+            denuncia = form.save()
             denuncia.save()
             return redirect('denuncia_detail', pk=denuncia.pk)
     else:
         denuncia = get_object_or_404(Denuncia, pk=pk)
         form = DenunciaForm1(instance=denuncia)
-
-    return render(request, 'denuncia_edit.html', {'form': form})
+        return render(request, 'denuncia_edit.html', {'form': form})
 
 def animal_new(request):
     if request.method == "POST":
@@ -39,17 +54,7 @@ def animal_new(request):
         form=AnimalForm()
     return  render(request, 'animal_edit.html', {'form': form})
 
-def denuncia_new(request):
-    if request.method == "POST":
-        form = DenunciaForm(request.POST)
-        if form.is_valid():
-            denucia = form.save(commit=False)
-            denucia.Estado_Denuncia = 'reportadas'
-            denucia.save()
-            return redirect('denuncia_detail', pk=denucia.pk)
-    else:
-        form = DenunciaForm()
-    return render(request, 'denuncia_edit.html', {'form': form})
+
 
 def authentication(request):
     form = AuthenticationForm
@@ -79,9 +84,6 @@ class Login(View):
 
         return render(request, 'login.html', {'form': form})
 
-def denuncia_detail(request, pk):
-    denuncia = get_object_or_404(Denuncia, pk=pk)
-    return render(request, 'denuncia_detail.html', {'denuncia': denuncia})
 
 def animal_detail(request, pk):
     animal = get_object_or_404(Animal, pk=pk)

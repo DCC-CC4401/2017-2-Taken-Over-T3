@@ -9,8 +9,8 @@
 <body>
    {% block content %}
        <div class="container ">
-            <h1 align="left">Editar Denuncia</h1>
-            <form action="" method="POST" class="post-form">{% csrf_token %}
+            <h1 align="left">Nueva Denuncia</h1>
+            <form method="POST" class="post-form">{% csrf_token %}
             <div class="row">
                 <div class="col-md-2">
                     <strong>Tipo de maltrato:</strong>
@@ -59,16 +59,8 @@
                     {{ form.Comentario }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <strong>Estado:</strong>
-                </div>
-                <div class="col-md-4">
-                    {{ form.TIPOS_ESTADO }}
-                </div>
-            </div>
             <br>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Enviar denuncia</button>
                 <button type="button" class="btn btn-default" onclick="location.href = '../../';">Cancelar</button>
             </form>
        </div>
