@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {% load staticfiles %}
-<h1 class="text-center">Denuncia #1</h1>
+<h1 class="text-center">Denuncia #{{ denuncia.pk }}</h1>
         <div class="container">
             <div class="row bg-info">
                 <div class="col-sm-2">
@@ -72,10 +72,13 @@
         <br>
             <div class="row bg-info col-md-offset-2">
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary">Resolver Denuncia</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href = '../../municipalidad/denuncias';">Resolver Denuncia</button>
                 </div>
                 <div class="col-sm-4">
                     <button type="button" class="btn btn-warning" onclick="location.href = '../../municipalidad/denuncias';">Eliminar</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-default" onclick="location.href = '../edit/{{ denuncia.pk }}';">Editar</button>
                 </div>
             </div>
 
