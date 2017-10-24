@@ -14,6 +14,12 @@ from django.contrib.auth import authenticate, login
 def index(request):
     return render(request, 'index.html')
 
+def denuncia_edit(request,pk):
+    denuncia = get_object_or_404(Denuncia, pk=pk)
+    form = DenunciaForm(instance=denuncia)
+
+    return render(request, 'denuncia_edit.html', {'form': form})
+
 def animal_new(request):
     if request.method == "POST":
         form = AnimalForm(request.POST)
